@@ -1,19 +1,38 @@
-own-asana: let Claude read your own Asana
-==========================================
+own-asana: let Claude work in your own Asana
+============================================
 
 What this is
 ------------
 Claude's built-in Asana connection can be signed in to one Asana account at a
-time. This folder gives Claude a second, separate way to READ one more Asana
+time. This folder gives Claude a second, separate way into one more Asana
 account: your own practice's. The built-in connection stays as it is.
 
-What it can and cannot do
--------------------------
-- It reads projects, tasks and comments in the ONE workspace you choose.
-- It cannot add, change, complete or delete anything in Asana.
+What it can do
+--------------
+- In the ONE workspace you choose, Claude can do what you can do in Asana
+  yourself. It can look at projects, tasks and comments. It can also add,
+  change, complete, comment, move, archive and delete.
+- Claude asks you before any big change. It says in one line what will
+  change and waits for your yes. Big means: any delete or archive, more
+  than three items at once, a change to how a project is laid out or who
+  is in it, and anything you did not ask for. A small thing you asked for
+  (add this task, mark it done, add this comment) it just does.
+- A delete is one item at a time, and own-asana checks the item's name with
+  Asana before it deletes. A deleted task stays in your Asana trash for 30
+  days.
+- Anything in another workspace is refused, to look at or to change.
 - It only works in Claude's Code tab, in a chat opened on the Claude folder
   this folder sits in. Other chats and other folders do not get it.
 - It talks to Asana directly from this computer. Nothing goes to anyone else.
+
+What to keep in mind
+--------------------
+- What Claude changes in Asana is changed in your name, as if you did it.
+- Asking first is a rule Claude is given. It is not a lock. Depending on how
+  your Claude is set, it may also ask your permission each time and name the
+  action (for example delete_task). If it offers to always allow an action
+  that deletes, it is safer to say no.
+- Use it for your own practice's Asana only, never for an employer's.
 
 Where this folder goes
 ----------------------
@@ -49,10 +68,11 @@ called Python. Say yes. Nothing else is installed.
 The token
 ---------
 The token works like a password for your Asana account. Asana does not let a
-token be limited, so the token itself could do anything you can do in Asana.
-own-asana is what keeps it to reading one workspace. That is why the token is
-kept in the computer's own password store (Windows Credential Manager, or the
-Keychain on a Mac) and not in any file.
+token be limited, so the token itself could do anything you can do in Asana,
+in every workspace you belong to. own-asana is what keeps Claude to the one
+workspace you chose. That is why the token is kept in the computer's own
+password store (Windows Credential Manager, or the Keychain on a Mac) and not
+in any file.
 
 To take it off this computer
 ----------------------------
@@ -64,11 +84,17 @@ To take it off this computer
    Until you do, a Claude chat that was already open can still use
    own-asana. A new chat cannot.
 
+Removing it changes nothing in Asana. What Claude added or changed there
+stays as it is.
+
 If something goes wrong
 -----------------------
 - Claude says own-asana is not set up: run Set up again.
 - Claude says Asana refused the token: the token was deleted in Asana. Run
   Set up again with a new one.
 - You moved or renamed the folder: run Set up again.
+- Claude changed something in Asana that you did not want: tell Claude to
+  stop, and put it right in Asana yourself. A deleted task is in your Asana
+  trash for 30 days.
 - Anything else: stop and ask the person who sent you this. Do not paste
   the token anywhere to "test" it.

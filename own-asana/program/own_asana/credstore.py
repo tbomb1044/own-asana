@@ -20,7 +20,7 @@ import sys
 SERVICE = "own-asana"
 ACCOUNT = "personal-access-token"
 WINDOWS_TARGET = "own-asana/personal-access-token"
-LABEL = "own-asana (Asana token for Claude, read only)"
+LABEL = "own-asana (Asana token for Claude)"
 
 # Asana tokens are digits, slashes, a colon and hex. Anything outside this small
 # set is refused before it gets near a command or the store.

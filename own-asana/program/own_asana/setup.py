@@ -1,5 +1,9 @@
 """Set up: ask for the token in a hidden prompt, check it, store it, tell Claude.
 
+It says plainly, before the first question, that Claude will be able to change
+things in the chosen workspace and not only look, and that Claude asks before
+a big change.
+
 This runs in its own window, outside Claude. The token is typed here and
 nowhere else. It is never printed, never written to a file, and never passed
 as a command argument. When it is started without a window of its own (by a
@@ -152,9 +156,11 @@ def run_setup(io, pkg_dir=None, python_exe=None, store=credstore, make_client=No
             io.say(line)
         return 1
 
-    io.say("This lets Claude READ your own Asana whenever you open this folder in Claude:")
+    io.say("This lets Claude work in your own Asana whenever you open this folder in Claude:")
     io.say("  " + folder)
-    io.say("It cannot add, change or delete anything in Asana.")
+    io.say("There Claude can do what you can do yourself: look, and also add, change,")
+    io.say("complete and delete. It asks you before any big change: a delete, an archive,")
+    io.say("more than three items at once, or anything you did not ask for.")
     io.say("")
     if not _yes(io.ask("Is that the Claude folder for your own practice? Type Y and press Enter: ")):
         io.say("Stopped. Put the own-asana folder inside your own practice's Claude folder,")
@@ -215,7 +221,7 @@ def run_setup(io, pkg_dir=None, python_exe=None, store=credstore, make_client=No
         io.say("It can see these workspaces:")
         for index, workspace in enumerate(workspaces, 1):
             io.say("  %d. %s" % (index, workspace.get("name")))
-        io.say("Claude will be able to read ONE of them through own-asana, and no other.")
+        io.say("Claude will be able to work in ONE of them through own-asana, and no other.")
         answer = io.ask("Which one is your own practice's? Type its number and press Enter: ")
         try:
             chosen = workspaces[int(answer.strip()) - 1]
@@ -227,6 +233,7 @@ def run_setup(io, pkg_dir=None, python_exe=None, store=credstore, make_client=No
 
     io.say("")
     io.say('About to connect:  "%s"  signed in as  %s' % (chosen.get("name"), email or name))
+    io.say("Claude will be able to change things there, not only look.")
     answer = io.ask("Is that your OWN practice's Asana, and not your employer's? "
                     "Type YES and press Enter: ")
     if answer.strip().lower() != "yes":

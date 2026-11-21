@@ -29,7 +29,7 @@ def run_remove(io, pkg_dir=None, store=credstore):
     io.say("This takes own-asana off this computer:")
     io.say("  - the stored Asana token is deleted from %s" % store.store_name())
     io.say("  - Claude is told to stop using own-asana in:  " + config.claude_folder(pkg_dir))
-    io.say("Nothing in Asana is changed.")
+    io.say("Removing it changes nothing in Asana. What Claude added or changed there stays.")
     io.say("")
     if not _yes(io.ask("Go ahead? Type Y and press Enter: ")):
         io.say("Stopped. Nothing was changed.")

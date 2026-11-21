@@ -1,1 +1,1 @@
-"""own-asana: read one Asana workspace from Claude, beside the built-in connector."""
+"""own-asana: work in one Asana workspace of your own from Claude, beside the built-in connector."""
