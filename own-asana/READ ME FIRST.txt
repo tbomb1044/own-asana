@@ -1,0 +1,74 @@
+own-asana: let Claude read your own Asana
+==========================================
+
+What this is
+------------
+Claude's built-in Asana connection can be signed in to one Asana account at a
+time. This folder gives Claude a second, separate way to READ one more Asana
+account: your own practice's. The built-in connection stays as it is.
+
+What it can and cannot do
+-------------------------
+- It reads projects, tasks and comments in the ONE workspace you choose.
+- It cannot add, change, complete or delete anything in Asana.
+- It only works in Claude's Code tab, in a chat opened on the Claude folder
+  this folder sits in. Other chats and other folders do not get it.
+- It talks to Asana directly from this computer. Nothing goes to anyone else.
+
+Where this folder goes
+----------------------
+Inside your OWN practice's Claude folder. Never inside a Claude folder that a
+firm you work for set up for you.
+
+To set it up (about five minutes)
+---------------------------------
+The usual way: you were sent a short request to paste into Claude, in a chat
+opened on your own practice's folder. Claude fetches this folder, checks it is
+the right file, and opens the set-up in a window of its own. You do the rest
+in that window. If Claude put this folder here, that has already happened.
+
+The other way, if you were handed this folder directly:
+Windows: double-click "Set up on Windows".
+Mac:     double-click "Set up on Mac".
+
+Either way, a window opens and walks you through it. You will make a
+"personal access token" in Asana and paste it into that window. Paste it ONLY
+there. Never paste it into a Claude chat, an email or a file. Nothing shows
+in the window as you paste. That is normal.
+
+If Windows says "Smart App Control blocked a file that may be unsafe", do not
+switch anything off. Use the request you paste into Claude. If you do not
+have it, ask for it.
+If Windows shows a blue "Windows protected your PC" box, click "More info",
+then "Run anyway". If the Mac says the file cannot be opened, right-click it
+and choose Open.
+
+The first time, you may be asked whether to install a free helper program
+called Python. Say yes. Nothing else is installed.
+
+The token
+---------
+The token works like a password for your Asana account. Asana does not let a
+token be limited, so the token itself could do anything you can do in Asana.
+own-asana is what keeps it to reading one workspace. That is why the token is
+kept in the computer's own password store (Windows Credential Manager, or the
+Keychain on a Mac) and not in any file.
+
+To take it off this computer
+----------------------------
+1. Double-click "Remove on Windows" (or "Remove on Mac"), or paste the remove
+   request into Claude if you were sent one.
+2. In Asana, go to https://app.asana.com/0/my-apps and delete the token under
+   "Personal access tokens". This is what makes the token stop working.
+3. Delete this folder, then close Claude completely and open it again.
+   Until you do, a Claude chat that was already open can still use
+   own-asana. A new chat cannot.
+
+If something goes wrong
+-----------------------
+- Claude says own-asana is not set up: run Set up again.
+- Claude says Asana refused the token: the token was deleted in Asana. Run
+  Set up again with a new one.
+- You moved or renamed the folder: run Set up again.
+- Anything else: stop and ask the person who sent you this. Do not paste
+  the token anywhere to "test" it.
